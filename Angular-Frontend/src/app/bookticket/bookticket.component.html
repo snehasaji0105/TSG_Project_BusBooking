@@ -1,0 +1,40 @@
+<!-- <div class="full-page">
+    <div class="navbar">
+        <div>
+            <h1 class="heading">BUS TICKET BOOKING</h1>
+        </div>
+        <nav>
+            <ul id='MenuItems'>
+               
+                <li><button [routerLink]="['/adminhome']">Home</button></li>
+                
+               </ul>
+        </nav>
+        <div class="col-md-12">
+            <div class="container">
+              <form [formGroup]="  bookTicketForm"  (ngSubmit)="bookTicket()">
+                <div  class="form-group"> <label for="name">Bus Name<sup class="text-danger">*</sup></label>
+                    <input type="text" name="busname" id="name" formControlName="busName" placeholder="enter bus name" required>
+                    <div *ngIf="  bookTicketForm.get('busName')?.valid &&   bookTicketForm.get('busName')?.untouched"  class="text-danger">
+                        Bus Name is required.
+                      </div>
+                    
+                </div>
+        
+                  <div  class="form-group"> <label for="number">Bus Number<sup class="text-danger">*</sup></label>
+                    <input type="text" name="busnumber" id="number" formControlName="busNumber" placeholder="enter bus number" required>
+                    <div *ngIf="  bookTicketForm.get('busNumber')?.valid &&  bookTicketForm.get('busNumber')?.untouched"  class="text-danger">
+                        Bus Number is required.
+                      </div>
+                    
+                </div>
+           
+      
+
+               
+              
+                
+               <div class="form-group"><button  class="btn btn-outline-dark" (click)="bookTicket()" >Book Ticket</button></div>
+ 
+
+ -->

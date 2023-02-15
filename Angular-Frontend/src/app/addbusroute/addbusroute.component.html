@@ -1,0 +1,74 @@
+<div class="full-page">
+  <div class="navbar">
+    <div>
+      <h1 class="heading">BUS TICKET BOOKING SYSTEM</h1>
+    </div>
+    <nav>
+      <ul id="MenuItems">
+        <li><button [routerLink]="['/adminhome']">Home</button></li>
+      </ul>
+    </nav>
+    <div class="col-md-12">
+      <div class="container">
+        <form [formGroup]="addBusRouteForm" (ngSubmit)="addBusRoute()">
+          <div class="form-group">
+            <label for="booked seats">Booked Seats<sup class="text-danger">*</sup></label>
+            <input
+              type="text"
+              name="bookedseats"
+              id="bookedseats"
+              formControlName="bookedSeats"
+              placeholder="enter booked seats"
+              required
+            />
+            <div
+              *ngIf="addBusRouteForm.controls['bookedSeats'].invalid && addBusRouteForm.controls['bookedSeats'].touched"
+            >
+              <p class="text-danger">Please enter booked seats</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="date">Journey Date<sup class="text-danger">*</sup></label>
+            <input
+              type="date"
+              name="journeydate"
+              id="number"
+              formControlName="journeyDate"
+              placeholder="enter journey date"
+              required
+            />
+            <div
+              *ngIf="addBusRouteForm.controls['journeyDate'].invalid && addBusRouteForm.controls['journeyDate'].touched"
+            >
+              <p class="text-danger">Please enter journey date</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="number">Bus Number<sup class="text-danger">*</sup></label>
+            <input
+              type="text"
+              name="busNumber"
+              id="number"
+              formControlName="busNumber"
+              placeholder="enter bus number"
+              required
+            />
+            <div
+              *ngIf="addBusRouteForm.controls['busNumber'].invalid && addBusRouteForm.controls['busNumber'].touched"
+            >
+              <p class="text-danger">Please enter Bus Number</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button class="btn btn-outline-dark" (click)="addBusRoute()">
+              Add Bus Route
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

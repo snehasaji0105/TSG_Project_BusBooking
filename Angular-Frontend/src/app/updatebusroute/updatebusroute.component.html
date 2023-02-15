@@ -1,0 +1,61 @@
+<div class="full-page">
+  <div class="navbar">
+    <div>
+      <h1 class="heading">TICKET BOOKING SYSTEM</h1>
+    </div>
+    <nav>
+      <ul id="MenuItems">
+        <li><button [routerLink]="['/adminhome']">Home</button></li>
+      </ul>
+    </nav>
+    <div class="col-md-12">
+      <div class="container">
+        <form [formGroup]="updateBusRouteForm" (ngSubmit)="updateBusRoute()">
+          <div class="form-group">
+            <label for="booked seats">Booked Seats<sup class="text-danger">*</sup></label>
+            <input
+              type="text"
+              name="bookedseats"
+              id="bookedseats"
+              formControlName="bookedSeats"
+              placeholder="enter booked seats"
+              required
+            />
+            <div
+              *ngIf="
+                updateBusRouteForm.controls['bookedSeats'].invalid && updateBusRouteForm.controls['bookedSeats'].touched
+              "
+            >
+              <p class="text-danger">Please enter booked seats</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="date">Journey Date<sup class="text-danger">*</sup></label>
+            <input
+              type="date"
+              name="journeydate"
+              id="number"
+              formControlName="journeyDate"
+              placeholder="enter journey date"
+              required
+            />
+            <div
+              *ngIf="
+                updateBusRouteForm.controls['journeyDate'].invalid && updateBusRouteForm.controls['journeyDate'].touched
+              "
+            >
+              <p class="text-danger">Please enter journey date</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button [routerLink]="['/busroutelist']" class="btn btn-outline-dark" (click)="updateBusRoute()">
+              Update Bus Route
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

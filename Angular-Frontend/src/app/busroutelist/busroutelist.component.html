@@ -1,0 +1,34 @@
+<div class="full-page">
+  <div class="navbar">
+    <div>
+      <h1 class="head">BUS TICKET BOOKING SYSTEM</h1>
+    </div>
+    <nav>
+      <ul id="MenuItems">
+        <!-- <li><a routerLink="/adminindex">Home</a></li> -->
+        <li><button [routerLink]="['/adminhome']">Home</button></li>
+        <!-- <li> <button routerLink="/homepage" class='logoutbtn' (click)="logout()">Logout</button> </li> -->
+      </ul>
+    </nav>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Booked Seats</th>
+        <th scope="col">Journey Date</th>
+        <th scope="col">Bus Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let busroute of routes">
+        <td>{{ busroute.bookedSeats }}</td>
+        <td>{{ busroute.journeyDate }}</td>
+        <td>{{ busroute.busNumber }}</td>
+        <button  class="btn btn-dark" (click)="updateBusRoute(busroute.id)">
+          Update
+        </button>
+        <button class="btn btn-dark" (click)="deleteBusRoute(busroute.routeId)">Delete</button>
+      </tr>
+    </tbody>
+  </table>
+</div>

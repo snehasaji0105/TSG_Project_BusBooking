@@ -1,0 +1,74 @@
+<div class="full-page">
+  <div class="navbar">
+    <div>
+      <h1 class="head">BUS TICKET BOOKING SYSTEM</h1>
+    </div>
+    <nav>
+      <ul id="MenuItems">
+        <!-- <li><a routerLink="/adminindex">Home</a></li> -->
+        <li><button [routerLink]="['/adminhome']">Home</button></li>
+        <!-- <li> <button routerLink="/homepage" class='logoutbtn' (click)="logout()" >Logout</button> </li> -->
+      </ul>
+    </nav>
+  </div>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Bus Name</th>
+
+        <th scope="col">Bus Number</th>
+
+        <th scope="col">Destination</th>
+
+        <th scope="col">Source</th>
+
+        <th scope="col">Total Seats</th>
+
+        <!-- <th scope="col">Booking Date</th>
+              <th scope="col">No.of.Passengers</th> -->
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let bus of buses">
+        <td>{{ bus.busName }}</td>
+
+        <td>{{ bus.busNumber }}</td>
+
+        <td>{{ bus.routeDestination }}</td>
+
+        <td>{{ bus.routeSource }}</td>
+
+        <td>{{ bus.totalSeats }}</td>
+
+        <!-- <td>{{bus.bookingDate}}</td>
+              <td>{{bus.no_of_passengers}}</td> -->
+
+        <td>
+          <div class="modal" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Bus Ticket Booking</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Delete the Bus</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-dark" (click)="updateBus(bus.busId)">Update</button>
+
+          <button class="btn btn-dark" (click)="deleteBus(bus.busId)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

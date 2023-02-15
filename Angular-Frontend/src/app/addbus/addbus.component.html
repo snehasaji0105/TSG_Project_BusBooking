@@ -1,0 +1,115 @@
+<div class="full-page">
+  <div class="navbar">
+    <div>
+      <h1 class="heading">BUS TICKET BOOKING</h1>
+    </div>
+    <nav>
+      <ul id="MenuItems">
+        <!-- <li><a href='#'>Home</a></li>
+                <li><a routerLink="/bookticket" >Book Ticket</a></li>
+                <li><a href='#'>About Us</a></li> -->
+        <li><button [routerLink]="['/adminhome']">Home</button></li>
+        <!-- <li><a href='#'>Cancel Ticket</a></li> -->
+        <!-- <li> <button  class='logoutbtn' (click)="logout()">Logout</button> </li> -->
+      </ul>
+    </nav>
+    <div class="col-md-12">
+      <div class="container">
+        <form [formGroup]="addBusForm" (ngSubmit)="addBus()">
+          <div class="form-group">
+            <label for="name">Bus Name<sup class="text-danger">*</sup></label>
+            <input
+              type="text"
+              name="busname"
+              id="name"
+              formControlName="busName"
+              placeholder="enter bus name"
+              required
+            />
+            <div *ngIf="addBusForm.get('busName')?.valid && addBusForm.get('busName')?.untouched" class="text-danger">
+              Bus Name is required.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="number">Bus Number<sup class="text-danger">*</sup></label>
+            <input
+              type="text"
+              name="busnumber"
+              id="number"
+              formControlName="busNumber"
+              placeholder="enter bus number"
+              required
+            />
+            <div
+              *ngIf="addBusForm.get('busNumber')?.valid && addBusForm.get('busNumber')?.untouched"
+              class="text-danger"
+            >
+              Bus Number is required.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-group">
+              <label for="routedestination"> Route Destination<sup class="text-danger">*</sup></label>
+              <input
+                type="text"
+                id="routeDestination"
+                formControlName="routeDestination"
+                placeholder="enter route destination"
+                class="form-control"
+                required
+              />
+              <div
+                *ngIf="addBusForm.get('routeDestination') && addBusForm!.get('routeDestination')!.valid"
+                class="text-danger"
+              >
+                Source and destination cannot be the same.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="routesource"> Route Source<sup class="text-danger">*</sup></label>
+              <input
+                type="text"
+                name=""
+                id="routesource"
+                formControlName="routeSource"
+                placeholder="enter route source"
+                required
+              />
+              <div
+                *ngIf="addBusForm.get('routeSource')?.valid && addBusForm.get('routeSource')?.untouched"
+                class="text-danger"
+              >
+                Route Source is required.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="totalSeats">Total Seats<sup class="text-danger">*</sup></label>
+              <input
+                type="text"
+                name=""
+                id="totalSeats"
+                formControlName="totalSeats"
+                placeholder="enter total seats"
+                required
+              />
+              <div
+                *ngIf="addBusForm.get('totalSeats')?.valid && addBusForm.get('totalSeats')?.untouched"
+                class="text-danger"
+              >
+                Total Seats is required.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <button  class="btn btn-outline-dark" (click)="addBus()">Add Bus</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
